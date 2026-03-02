@@ -1,5 +1,11 @@
 package cesde.migaja.migajaApp.Models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
 @Table(name = "categorias")
 public class categoria {
@@ -17,12 +23,13 @@ public class categoria {
     private String icono;
     private Boolean estado;
 
-    // Constructor vacío
-    public Categoria() {
+    // Constructor vacío  
+    public categoria() {
     }
 
     // Constructor lleno
-    public Categoria(Integer id, String nombre, String fechaCreacion, String responsable, String justificacion, String descripcion, Integer prioridad, String color, String icono, Boolean estado) {
+    
+    public categoria(Integer id, String nombre, String fechaCreacion, String responsable, String justificacion, String descripcion, Integer prioridad, String color, String icono, Boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
