@@ -1,6 +1,10 @@
 package cesde.migaja.migajaApp.Models;
 
+import cesde.migaja.migajaApp.Models.Utils.Franquicia;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,13 +17,20 @@ public class MedioPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "nombre_franquicia" , nullable = false , unique = false , length = 50)
     private String nombre;
-    private String franquicia;
+
+    @Column(name = "franquicia" , nullable = false , unique = false)
+    @Enumerated(EnumType.STRING)
+    private Franquicia franquicia;
+
+    @Column(name = "estado" , nullable = false , unique = false)
     private Boolean estado;
 
     public MedioPago() {}
 
-    public MedioPago(Integer id, String nombre, String franquicia, Boolean estado) {
+    public MedioPago(Integer id, String nombre, Franquicia franquicia, Boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.franquicia = franquicia;
@@ -42,11 +53,11 @@ public class MedioPago {
         this.nombre = nombre;
     }
 
-    public String getFranquicia() {
+    public Franquicia getFranquicia() {
         return franquicia;
     }
 
-    public void setFranquicia(String franquicia) {
+    public void setFranquicia(Franquicia franquicia) {
         this.franquicia = franquicia;
     }
 
