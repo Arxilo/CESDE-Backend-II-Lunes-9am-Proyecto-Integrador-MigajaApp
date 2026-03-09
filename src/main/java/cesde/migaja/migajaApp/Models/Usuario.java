@@ -1,5 +1,6 @@
 package cesde.migaja.migajaApp.Models;
 
+import cesde.migaja.migajaApp.Models.Utils.TipoDocumento;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,13 +11,12 @@ import jakarta.persistence.Table;
 @Table(name = "usuarios")
 public class Usuario {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private Integer id;
     private String nombre;
-    private String tipoDocumento;
+    private TipoDocumento tipoDocumento;
     private String numeroDocumento;
     private Integer edad;
     private String apellidos;
@@ -24,11 +24,11 @@ public class Usuario {
     private String telefono;
     private String direccion;
     private String rol;
-    
+
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombre, String tipoDocumento, String numeroDocumento, Integer edad,
+    public Usuario(Integer id, String nombre, TipoDocumento tipoDocumento, String numeroDocumento, Integer edad,
             String apellidos, String email, String telefono, String direccion, String rol) {
         this.id = id;
         this.nombre = nombre;
@@ -58,11 +58,11 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getTipoDocumento() {
+    public TipoDocumento getTipoDocumento() {
         return tipoDocumento;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
 
@@ -121,8 +121,5 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
-
-    
-    
 
 }
