@@ -50,6 +50,9 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<MedioPago> mediosDePago;
+
     public Usuario() {
     }
 
