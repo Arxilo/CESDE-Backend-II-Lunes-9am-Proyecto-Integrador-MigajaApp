@@ -28,6 +28,10 @@ public class MedioPago {
     @Column(name = "estado" , nullable = false , unique = false)
     private Boolean estado;
 
+    @ManyToOne
+    @JoinColumn(name = "fk_usuario" , referencedColumnName = "id")
+    private Usuario usuario;
+
     public MedioPago() {}
 
     public MedioPago(Integer id, String nombre, Franquicia franquicia, Boolean estado) {
