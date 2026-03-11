@@ -2,8 +2,8 @@ package cesde.migaja.migajaApp.Models;
 
 import java.util.List;
 
-import cesde.migaja.migajaApp.Models.Utils.Rol;
-import cesde.migaja.migajaApp.Models.Utils.TipoDocumento;
+import cesde.migaja.migajaApp.Models.utils.Rol;
+import cesde.migaja.migajaApp.Models.utils.TipoDocumento;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

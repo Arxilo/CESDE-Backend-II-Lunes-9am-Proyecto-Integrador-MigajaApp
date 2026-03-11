@@ -1,4 +1,4 @@
-package cesde.migaja.migajaApp.Models.Utils;
+package cesde.migaja.migajaApp.Models.utils;
 
 public enum Rol {
 
