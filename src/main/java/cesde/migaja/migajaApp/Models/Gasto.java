@@ -42,7 +42,9 @@ public class Gasto {
     @Column(length = 300)
     private String observaciones;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "gastos", referencedColumnName = "id")
+    private Usuario usuario;
 
     public Gasto() {
     }
