@@ -5,16 +5,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "categorias")
-public class categoria {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
-    private String fechaCreacion;
+    private LocalDate fechaCreacion;
     private String responsable;
     private String justificacion;
     private String descripcion;
@@ -23,14 +24,17 @@ public class categoria {
     private String icono;
     private Boolean estado;
 
-    // Constructor vacío  
-    public categoria() {
+    // Constructor vacío
+    public Categoria() {
     }
 
-    // Constructor lleno
-    
-    public categoria(Integer id, String nombre, String fechaCreacion, String responsable, String justificacion, String descripcion, Integer prioridad, String color, String icono, Boolean estado) {
-        this.id = id;
+    // Constructor lleno 
+    public Categoria(String nombre, LocalDate fechaCreacion, 
+        String responsable, String justificacion, 
+        String descripcion, Integer prioridad, 
+        String color, String icono, 
+        Boolean estado) {
+
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.responsable = responsable;
@@ -59,11 +63,11 @@ public class categoria {
         this.nombre = nombre;
     }
 
-    public String getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(String fechaCreacion) {
+    public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
@@ -124,7 +128,3 @@ public class categoria {
     }
 
 }
-
-
-
-    
