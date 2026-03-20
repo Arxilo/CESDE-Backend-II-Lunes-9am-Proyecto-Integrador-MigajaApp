@@ -11,6 +11,9 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 import cesde.migaja.migajaApp.Models.utils.Prioridad;
 import cesde.migaja.migajaApp.Models.utils.Estado;
+import jakarta.persistence.OneToMany;
+import java.util.List;
+import cesde.migaja.migajaApp.Models.Gasto;
 
 @Entity
 @Table(name = "Categorias")
@@ -48,6 +51,10 @@ public class Categoria {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Estado estado;
+
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Gasto> gastos;
 
     // Constructor vacío
     public Categoria() {
