@@ -1,6 +1,6 @@
 package cesde.migaja.migajaApp.Models;
 
-import cesde.migaja.migajaApp.Models.utils.Franquicia;
+import cesde.migaja.migajaApp.Models.Utils.Franquicia;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,4 +1,4 @@
-package cesde.migaja.migajaApp.Models.utils;
+package cesde.migaja.migajaApp.Models.Utils;
 
 public enum Franquicia {
 
