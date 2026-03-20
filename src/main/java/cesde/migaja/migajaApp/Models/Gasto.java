@@ -46,6 +46,10 @@ public class Gasto {
     @JoinColumn(name = "gastos", referencedColumnName = "id")
     private Usuario usuario;
 
+    @ManyToOne
+    @JoinColumn (name = "categoria", referencedColumnName = "id")
+    private Categoria categoria;
+
     public Gasto() {
     }
 
