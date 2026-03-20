@@ -31,7 +31,7 @@ public class MedioPago {
     private Boolean estado;
 
     @ManyToOne
-    @JoinColumn(name = "fk_usuario" , referencedColumnName = "id")
+    @JoinColumn(name = "mediosDePago" , referencedColumnName = "id" )
     private Usuario usuario;
 
     public MedioPago() {}
