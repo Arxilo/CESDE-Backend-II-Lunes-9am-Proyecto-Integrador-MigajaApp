@@ -13,7 +13,7 @@ import cesde.migaja.migajaApp.Models.utils.Prioridad;
 import cesde.migaja.migajaApp.Models.utils.Estado;
 
 @Entity
-@Table(name = "categorias")
+@Table(name = "Categorias")
 public class Categoria {
 
     @Id
