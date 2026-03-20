@@ -1,4 +1,4 @@
-package cesde.migaja.migajaApp.Models;
+package cesde.migaja.migajaApp.Models.utils;
 
 public enum Estado {
     ACTIVO,
