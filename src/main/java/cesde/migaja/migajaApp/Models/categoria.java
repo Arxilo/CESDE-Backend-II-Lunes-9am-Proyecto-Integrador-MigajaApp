@@ -1,42 +1,72 @@
 package cesde.migaja.migajaApp.Models;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "categorias")
-public class categoria {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false, length = 100)
     private String nombre;
-    private String fechaCreacion;
+
+    @Column(nullable = false)
+    private LocalDate fechaCreacion;
+
+    @Column(nullable = false, length = 100)
     private String responsable;
+
+    @Column(length = 255)
     private String justificacion;
+
+    @Column(length = 255)
     private String descripcion;
-    private Integer prioridad;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Prioridad prioridad;
+
+    @Column(length = 20)
     private String color;
+
+    @Column(length = 50)
     private String icono;
-    private Boolean estado;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Estado estado;
 
     // Constructor vacío
     public Categoria() {
     }
 
     // Constructor lleno
-    public Categoria(Integer id, String nombre, String fechaCreacion, String responsable, String justificacion, String descripcion, Integer prioridad, String color, String icono, Boolean estado) {
-        this.id = id;
-        this.nombre = nombre;
-        this.fechaCreacion = fechaCreacion;
-        this.responsable = responsable;
-        this.justificacion = justificacion;
-        this.descripcion = descripcion;
-        this.prioridad = prioridad;
-        this.color = color;
-        this.icono = icono;
-        this.estado = estado;
+    public Categoria(String nombre, LocalDate fechaCreacion,
+    String responsable, String justificacion,
+    String descripcion, Prioridad prioridad,
+    String color, String icono,
+    Estado estado) {
+
+    this.nombre = nombre;
+    this.fechaCreacion = fechaCreacion;
+    this.responsable = responsable;
+    this.justificacion = justificacion;
+    this.descripcion = descripcion;
+    this.prioridad = prioridad;
+    this.color = color;
+    this.icono = icono;
+    this.estado = estado;
     }
 
     // Getters y Setters
@@ -56,11 +86,11 @@ public class categoria {
         this.nombre = nombre;
     }
 
-    public String getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(String fechaCreacion) {
+    public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
@@ -88,11 +118,11 @@ public class categoria {
         this.descripcion = descripcion;
     }
 
-    public Integer getPrioridad() {
+    public Prioridad getPrioridad() {
         return prioridad;
     }
 
-    public void setPrioridad(Integer prioridad) {
+    public void setPrioridad(Prioridad prioridad) {
         this.prioridad = prioridad;
     }
 
@@ -112,11 +142,11 @@ public class categoria {
         this.icono = icono;
     }
 
-    public Boolean getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -124,4 +154,3 @@ public class categoria {
 
 
 
-    
