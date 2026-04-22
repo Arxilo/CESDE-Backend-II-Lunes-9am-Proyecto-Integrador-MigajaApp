@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "comercios")
@@ -12,14 +13,35 @@ public class Comercio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column( name="nit", nullable = false, unique = true)
     private Integer nit;
+
+    @Column(name="nombre_completo", nullable = false, unique = false, length = 50)
     private String nombre;
+
+    @Column(name="correo", nullable = false, unique = false, length = 70)
     private String correo;
+
+    @Column(name="direccion", nullable = false, unique = false, length = 50)
     private String direccion;
+
+    @Column(name="telefono", nullable = false, unique = false, length = 11)
     private String telefono;
+
+    @Column(name="sitio_Web", nullable = true, unique = false, length = 100)
     private String sitioWeb;
+
+    @Column(name="actividad", nullable = false, unique = false, length = 200)
     private String actividad;
+
+    @Column(name="representante_Legal", nullable = false, unique = false , length = 100)
     private String representanteLegal;
+
+    //Relacion "un gasto, muchos comercios"
+    @ManyToOne(mappedBy = "comercio")
+    @joinColumn(name = "comercios", referencedColumnName = "id")
+    private Gasto gasto;
 
     public Comercio() {
     }
