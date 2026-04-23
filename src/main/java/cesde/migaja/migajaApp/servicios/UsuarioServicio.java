@@ -25,7 +25,7 @@ public class UsuarioServicio {
 
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
-                "Nombre de usuario es requerido"
+                "dato requerido"
             );
 
         }
