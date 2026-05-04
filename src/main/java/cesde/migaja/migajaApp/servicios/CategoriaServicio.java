@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import cesde.migaja.migajaApp.Models.Categoria;
+import cesde.migaja.migajaApp.Models.categoria;
 import cesde.migaja.migajaApp.repositorios.CategoriaRepository;
 
 @Service
@@ -14,7 +14,7 @@ public class CategoriaServicio {
     @Autowired
     private CategoriaRepository repositorio;
 
-    public Categoria guardarCategoria(Categoria datosCategoria) {
+    public categoria guardarCategoria(categoria datosCategoria) {
 
         // Validar que el nombre no esté vacío
         if (datosCategoria.getNombre() == null ||
@@ -36,7 +36,7 @@ public class CategoriaServicio {
         return repositorio.save(datosCategoria);
     }
 
-    public List<Categoria> listarCategorias() {
+    public List<categoria> listarCategorias() {
         return repositorio.findAll();
     }
 }

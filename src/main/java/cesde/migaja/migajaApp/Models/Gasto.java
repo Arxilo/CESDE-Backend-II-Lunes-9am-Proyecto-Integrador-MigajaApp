@@ -48,7 +48,7 @@ public class Gasto {
 
     @ManyToOne
     @JoinColumn (name = "categoria", referencedColumnName = "id")
-    private Categoria categoria;
+    private categoria categoria;
 
     public Gasto() {
     }

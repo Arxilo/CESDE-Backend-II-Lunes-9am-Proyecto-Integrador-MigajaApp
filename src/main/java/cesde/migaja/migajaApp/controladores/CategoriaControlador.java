@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import cesde.migaja.migajaApp.Models.Categoria;
+import cesde.migaja.migajaApp.Models.categoria;
 import cesde.migaja.migajaApp.servicios.CategoriaServicio;
 
 @RestController
@@ -19,7 +19,7 @@ public class CategoriaControlador {
     private CategoriaServicio servicio;
 
     @PostMapping
-    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria datos) {
+    public ResponseEntity<?> guardarCategoria(@RequestBody categoria datos) {
         return ResponseEntity.status(HttpStatus.OK).body(
                 servicio.guardarCategoria(datos));
     }

@@ -23,4 +23,3 @@ public class ControladorMedioPago {
         return ResponseEntity.ok(servicio.listar_mediopago());
     }
 }
- 

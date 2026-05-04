@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 
@@ -39,8 +41,8 @@ public class Comercio {
     private String representanteLegal;
 
     //Relacion "un gasto, muchos comercios"
-    @ManyToOne(mappedBy = "comercio")
-    @joinColumn(name = "comercios", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "comercios", referencedColumnName = "id")
     private Gasto gasto;
 
     public Comercio() {

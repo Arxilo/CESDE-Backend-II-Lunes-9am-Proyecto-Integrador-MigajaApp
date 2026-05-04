@@ -17,7 +17,7 @@ import cesde.migaja.migajaApp.Models.Gasto;
 
 @Entity
 @Table(name = "Categorias")
-public class Categoria {
+public class categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,11 +57,11 @@ public class Categoria {
     private List<Gasto> gastos;
 
     // Constructor vacío
-    public Categoria() {
+    public categoria() {
     }
 
     // Constructor lleno
-    public Categoria(String nombre, LocalDate fechaCreacion,
+    public categoria(String nombre, LocalDate fechaCreacion,
     String responsable, String justificacion,
     String descripcion, Prioridad prioridad,
     String color, String icono,
