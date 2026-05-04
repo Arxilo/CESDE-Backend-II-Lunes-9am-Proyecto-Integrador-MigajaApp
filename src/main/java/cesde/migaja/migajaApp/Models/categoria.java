@@ -13,7 +13,6 @@ import cesde.migaja.migajaApp.Models.utils.Prioridad;
 import cesde.migaja.migajaApp.Models.utils.Estado;
 import jakarta.persistence.OneToMany;
 import java.util.List;
-import cesde.migaja.migajaApp.Models.Gasto;
 
 @Entity
 @Table(name = "Categorias")
