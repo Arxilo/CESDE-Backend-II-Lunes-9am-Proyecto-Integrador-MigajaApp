@@ -18,7 +18,7 @@ public interface IUsuarioRepositorio extends JpaRepository<Usuario , Integer>{
 
     List<Usuario> findByTipoDocumento(TipoDocumento tipoDocumento);
 
-    Optional<Usuario> findByDocumento(String documento);
+    Optional<Usuario> findByNumeroDocumento(String documento);
 
     List<Usuario> findByEdad(Integer edad);
 
