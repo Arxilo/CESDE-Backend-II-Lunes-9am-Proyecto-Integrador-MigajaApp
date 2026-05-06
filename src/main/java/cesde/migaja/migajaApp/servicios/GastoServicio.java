@@ -17,12 +17,18 @@ public class GastoServicio {
 
     public Gasto guardar_gasto(Gasto datosGastos) {
 
-        if (datosGastos.getDescripcion() == null || datosGastos.getDescripcion().isBlank()
-                || datosGastos.getDescripcion().isEmpty()) {
+        if (datosGastos.getDescripcion() == null || datosGastos.getDescripcion().isBlank()) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST,
                     "La descripcion del gasto es obligatorio, revisa por favor");
         }
+        
+        if (datosGastos.getMonto() == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "El monto es obligatorio");
+        }
+
         if (datosGastos.getMonto().isNaN()) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST,

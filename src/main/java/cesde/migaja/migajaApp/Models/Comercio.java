@@ -42,7 +42,7 @@ public class Comercio {
 
     //Relacion "un gasto, muchos comercios"
     @ManyToOne
-    @JoinColumn(name = "comercios", referencedColumnName = "id")
+    @JoinColumn(name = "gasto_id", referencedColumnName = "id")
     private Gasto gasto;
 
     public Comercio() {

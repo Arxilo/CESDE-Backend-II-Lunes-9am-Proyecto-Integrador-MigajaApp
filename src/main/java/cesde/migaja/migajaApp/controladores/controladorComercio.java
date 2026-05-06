@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/apiMigaja/v1/comercios")
-public class controladorComercio {
+public class ControladorComercio {
 
     @Autowired
     Serviciocomercio servicio;

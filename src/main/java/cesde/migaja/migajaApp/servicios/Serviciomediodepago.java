@@ -18,7 +18,7 @@ public class Serviciomediodepago {
     public MedioPago guardar_medioPago(MedioPago datosmediopago){
 
 
-        if (datosmediopago.getNombre().isEmpty()||datosmediopago.getNombre().isBlank()||datosmediopago.getNombre()==null){
+        if (datosmediopago.getNombre() == null || datosmediopago.getNombre().isBlank()){
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
                 "Dato requerido"

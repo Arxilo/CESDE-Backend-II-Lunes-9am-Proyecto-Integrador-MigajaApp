@@ -17,30 +17,25 @@ public class Serviciocomercio {
     private Icomercio repositoriocomercio;
 
     public Comercio guardar_comercio(Comercio datoscomercio) {
-        if (datoscomercio.getNombre().isEmpty() || datoscomercio.getNombre().isBlank()
-                || datoscomercio.getNombre() == null) {
+        if (datoscomercio.getNombre() == null || datoscomercio.getNombre().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nombre del comercio no puede estar vacío");
         }
         if (datoscomercio.getNit() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nit del comercio no puede estar vacío");
         }
-        if (datoscomercio.getDireccion().isEmpty() || datoscomercio.getDireccion().isBlank()
-                || datoscomercio.getDireccion() == null) {
+        if (datoscomercio.getDireccion() == null || datoscomercio.getDireccion().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La dirección del comercio no puede estar vacía");
         }
-        if (datoscomercio.getTelefono() == null) {
+        if (datoscomercio.getTelefono() == null || datoscomercio.getTelefono().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El teléfono del comercio no puede estar vacío");
         }
-        if (datoscomercio.getCorreo() == null) {
+        if (datoscomercio.getCorreo() == null || datoscomercio.getCorreo().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El correo del comercio no puede estar vacío");
         }
-        if (datoscomercio.getSitioWeb() == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El sitio web del comercio no puede estar vacío");
-        }
-        if (datoscomercio.getRepresentanteLegal() == null) {
+        if (datoscomercio.getRepresentanteLegal() == null || datoscomercio.getRepresentanteLegal().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El representante legal del comercio no puede estar vacío");
         }
-        if (datoscomercio.getActividad() == null) {
+        if (datoscomercio.getActividad() == null || datoscomercio.getActividad().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La actividad del comercio no puede estar vacía");
         }
 
@@ -56,20 +51,42 @@ public class Serviciocomercio {
 
         if (comercioBuscado.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El comercio con el id " + id + " no existe");
-        }else{
-            Comercio comercioActualizado = comercioBuscado.get();
-            comercioActualizado.setNombre(datoscomercio.getNombre());
-            comercioActualizado.setNit(datoscomercio.getNit());
-            comercioActualizado.setDireccion(datoscomercio.getDireccion());
-            comercioActualizado.setTelefono(datoscomercio.getTelefono());
-            comercioActualizado.setCorreo(datoscomercio.getCorreo());
-            comercioActualizado.setSitioWeb(datoscomercio.getSitioWeb());
-            comercioActualizado.setRepresentanteLegal(datoscomercio.getRepresentanteLegal());
-            comercioActualizado.setActividad(datoscomercio.getActividad());
-
-            return repositoriocomercio.save(comercioActualizado);
         }
 
+        // Validaciones antes de actualizar
+        if (datoscomercio.getNombre() == null || datoscomercio.getNombre().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nombre del comercio no puede estar vacío");
+        }
+        if (datoscomercio.getNit() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nit del comercio no puede estar vacío");
+        }
+        if (datoscomercio.getDireccion() == null || datoscomercio.getDireccion().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La dirección del comercio no puede estar vacía");
+        }
+        if (datoscomercio.getTelefono() == null || datoscomercio.getTelefono().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El teléfono del comercio no puede estar vacío");
+        }
+        if (datoscomercio.getCorreo() == null || datoscomercio.getCorreo().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El correo del comercio no puede estar vacío");
+        }
+        if (datoscomercio.getRepresentanteLegal() == null || datoscomercio.getRepresentanteLegal().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El representante legal del comercio no puede estar vacío");
+        }
+        if (datoscomercio.getActividad() == null || datoscomercio.getActividad().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La actividad del comercio no puede estar vacía");
+        }
+
+        Comercio comercioActualizado = comercioBuscado.get();
+        comercioActualizado.setNombre(datoscomercio.getNombre());
+        comercioActualizado.setNit(datoscomercio.getNit());
+        comercioActualizado.setDireccion(datoscomercio.getDireccion());
+        comercioActualizado.setTelefono(datoscomercio.getTelefono());
+        comercioActualizado.setCorreo(datoscomercio.getCorreo());
+        comercioActualizado.setSitioWeb(datoscomercio.getSitioWeb());
+        comercioActualizado.setRepresentanteLegal(datoscomercio.getRepresentanteLegal());
+        comercioActualizado.setActividad(datoscomercio.getActividad());
+
+        return repositoriocomercio.save(comercioActualizado);
     }
 
     public boolean eliminar_comercio(Integer id) {
