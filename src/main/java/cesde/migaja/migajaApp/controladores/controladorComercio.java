@@ -11,7 +11,7 @@ import cesde.migaja.migajaApp.servicios.Serviciocomercio;
 
 @RestController
 @RequestMapping("/apiMigaja/v1/comercios")
-public class ControladorComercio {
+public class controladorComercio {
 
     @Autowired
     Serviciocomercio servicio;
