@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Categorias")
-public class CategoriaModel {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,11 +56,11 @@ public class CategoriaModel {
     private List<Gasto> gastos;
 
     // Constructor vacío
-    public CategoriaModel() {
+    public Categoria() {
     }
 
     // Constructor lleno
-    public CategoriaModel(String nombre, LocalDate fechaCreacion,
+    public Categoria(String nombre, LocalDate fechaCreacion,
     String responsable, String justificacion,
     String descripcion, Prioridad prioridad,
     String color, String icono,
