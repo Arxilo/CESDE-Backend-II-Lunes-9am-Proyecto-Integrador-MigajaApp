@@ -29,7 +29,7 @@ public class ControladorUsuario {
     // funcion controladora para el servicio de guardar usuario
     @PostMapping
     public ResponseEntity<?>controladorGuardar(@RequestBody Usuario datosUsuario){
-        return ResponseEntity.status(HttpStatus.OK).body(
+        return ResponseEntity.status(HttpStatus.CREATED).body(
             servicio.guardar_Usuario(datosUsuario)
         );
     }

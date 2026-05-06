@@ -22,17 +22,37 @@ public class UsuarioServicio {
     public Usuario guardar_Usuario(Usuario datosDelUsuario){
 
         // validar que el usuario mande sus nombres
-        if(datosDelUsuario.getNombre().isEmpty()|| datosDelUsuario.getNombre().isBlank() || datosDelUsuario.getNombre() == null){
+        if(datosDelUsuario.getNombre() == null || datosDelUsuario.getNombre().isBlank()){
 
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
-                "dato requerido"
+                "El nombre es requerido"
+            );
+
+        }
+
+        // validar apellidos
+        if(datosDelUsuario.getApellidos() == null || datosDelUsuario.getApellidos().isBlank()){
+
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,
+                "Los apellidos son requeridos"
+            );
+
+        }
+
+        // validar tipo de documento
+        if(datosDelUsuario.getTipoDocumento() == null){
+
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,
+                "El tipo de documento es requerido"
             );
 
         }
 
         // validar que el documento tenga almenos 6 caracteres
-        if(datosDelUsuario.getNumeroDocumento().length() < 6 || datosDelUsuario.getNumeroDocumento() == null){
+        if(datosDelUsuario.getNumeroDocumento() == null || datosDelUsuario.getNumeroDocumento().length() < 6){
 
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
@@ -41,10 +61,18 @@ public class UsuarioServicio {
 
         }
 
+        // validar edad
+        if(datosDelUsuario.getEdad() == null || datosDelUsuario.getEdad() <= 0){
+
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,
+                "La edad es requerida y debe ser mayor a 0"
+            );
+
+        }
 
         // Validar que el Email no esté vacío
-
-        if (datosDelUsuario.getEmail().isEmpty() || datosDelUsuario.getEmail().isBlank() || datosDelUsuario.getEmail() == null) {
+        if (datosDelUsuario.getEmail() == null || datosDelUsuario.getEmail().isBlank()) {
 
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
@@ -53,9 +81,39 @@ public class UsuarioServicio {
 
         }
 
+        // validar telefono
+        if(datosDelUsuario.getTelefono() == null || datosDelUsuario.getTelefono().isBlank()){
+
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,
+                "El telefono es requerido"
+            );
+
+        }
+
+        // validar direccion
+        if(datosDelUsuario.getDireccion() == null || datosDelUsuario.getDireccion().isBlank()){
+
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,
+                "La direccion es requerida"
+            );
+
+        }
+
+        // validar rol
+        if(datosDelUsuario.getRol() == null){
+
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST,
+                "El rol es requerido"
+            );
+
+        }
+
         // Si se pasan las validaciones
         return repositorio.save(datosDelUsuario);
-        
+
     }
 
     // funcion para listar usuarios
@@ -81,7 +139,14 @@ public class UsuarioServicio {
 
             // modificando datos
             usuario_encontrado.setNombre(datosNuevos.getNombre());
+            usuario_encontrado.setApellidos(datosNuevos.getApellidos());
+            usuario_encontrado.setTipoDocumento(datosNuevos.getTipoDocumento());
+            usuario_encontrado.setNumeroDocumento(datosNuevos.getNumeroDocumento());
+            usuario_encontrado.setEdad(datosNuevos.getEdad());
             usuario_encontrado.setEmail(datosNuevos.getEmail());
+            usuario_encontrado.setTelefono(datosNuevos.getTelefono());
+            usuario_encontrado.setDireccion(datosNuevos.getDireccion());
+            usuario_encontrado.setRol(datosNuevos.getRol());
 
             return repositorio.save(usuario_encontrado);
 
