@@ -5,6 +5,7 @@ import cesde.migaja.migajaApp.Models.utils.Rol;
 import cesde.migaja.migajaApp.Models.utils.TipoDocumento;
 import cesde.migaja.migajaApp.repositorios.IUsuarioRepositorio;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
+@Order(1)
 public class CargarDatosUsuario implements CommandLineRunner {
 
     private final IUsuarioRepositorio usuarioRepositorio;

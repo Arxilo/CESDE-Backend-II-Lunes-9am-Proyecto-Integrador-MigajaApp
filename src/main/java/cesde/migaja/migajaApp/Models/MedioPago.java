@@ -74,6 +74,14 @@ public class MedioPago {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     
 
 }
