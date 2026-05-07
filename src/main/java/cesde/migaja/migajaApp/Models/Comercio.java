@@ -1,11 +1,12 @@
 package cesde.migaja.migajaApp.Models;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 
@@ -40,10 +41,8 @@ public class Comercio {
     @Column(name="representante_Legal", nullable = false, unique = false , length = 100)
     private String representanteLegal;
 
-    //Relacion "un gasto, muchos comercios"
-    @ManyToOne
-    @JoinColumn(name = "gasto_id", referencedColumnName = "id")
-    private Gasto gasto;
+    @OneToMany(mappedBy = "comercio")
+    private List<Gasto> gastos;
 
     public Comercio() {
     }

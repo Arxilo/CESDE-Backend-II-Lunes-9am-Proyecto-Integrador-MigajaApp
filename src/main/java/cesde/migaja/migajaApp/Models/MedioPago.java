@@ -1,5 +1,7 @@
 package cesde.migaja.migajaApp.Models;
 
+import java.util.List;
+
 import cesde.migaja.migajaApp.Models.utils.Franquicia;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,8 +34,11 @@ public class MedioPago {
     private Boolean estado;
 
     @ManyToOne
-    @JoinColumn(name = "mediosDePago" , referencedColumnName = "id" )
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
+
+    @OneToMany(mappedBy = "medioPago")
+    private List<Gasto> gastos;
 
     public MedioPago() {}
 

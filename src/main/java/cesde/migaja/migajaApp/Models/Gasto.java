@@ -27,8 +27,6 @@ public class Gasto {
     private String imagen;
     @Column(nullable = false, length = 20)
     private String moneda;
-    @Column(length = 50)
-    private String metodoPago;
     @Column(length = 150)
     private String lugar;
     @Column(nullable = false)
@@ -43,12 +41,20 @@ public class Gasto {
     private String observaciones;
 
     @ManyToOne
-    @JoinColumn(name = "gastos", referencedColumnName = "id")
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn (name = "categoria", referencedColumnName = "id")
+    @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "comercio_id", referencedColumnName = "id")
+    private Comercio comercio;
+
+    @ManyToOne
+    @JoinColumn(name = "medio_pago_id", referencedColumnName = "id")
+    private MedioPago medioPago;
 
     public Gasto() {
     }
@@ -56,7 +62,7 @@ public class Gasto {
 
 
     public Gasto(Integer id, String descripcion, LocalDate fecha, Double monto, String imagen, String moneda,
-            String metodoPago, String lugar, Boolean esRecurrente, String tipoGasto, Integer impactoFinanciero,
+            String lugar, Boolean esRecurrente, String tipoGasto, Integer impactoFinanciero,
             Boolean activo, String observaciones) {
         this.id = id;
         this.descripcion = descripcion;
@@ -64,7 +70,6 @@ public class Gasto {
         this.monto = monto;
         this.imagen = imagen;
         this.moneda = moneda;
-        this.metodoPago = metodoPago;
         this.lugar = lugar;
         this.esRecurrente = esRecurrente;
         this.tipoGasto = tipoGasto;
@@ -147,18 +152,6 @@ public class Gasto {
 
 
 
-    public String getMetodoPago() {
-        return metodoPago;
-    }
-
-
-
-    public void setMetodoPago(String metodoPago) {
-        this.metodoPago = metodoPago;
-    }
-
-
-
     public String getLugar() {
         return lugar;
     }
@@ -229,8 +222,36 @@ public class Gasto {
         this.observaciones = observaciones;
     }
 
-    
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-    
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Comercio getComercio() {
+        return comercio;
+    }
+
+    public void setComercio(Comercio comercio) {
+        this.comercio = comercio;
+    }
+
+    public MedioPago getMedioPago() {
+        return medioPago;
+    }
+
+    public void setMedioPago(MedioPago medioPago) {
+        this.medioPago = medioPago;
+    }
 
 }

@@ -3,6 +3,7 @@ package cesde.migaja.migajaApp.configuracion;
 import cesde.migaja.migajaApp.Models.Comercio;
 import cesde.migaja.migajaApp.repositorios.Icomercio;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
+@Order(2)
 public class CargarDatosComercio implements CommandLineRunner {
 
     private final Icomercio comercioRepositorio;

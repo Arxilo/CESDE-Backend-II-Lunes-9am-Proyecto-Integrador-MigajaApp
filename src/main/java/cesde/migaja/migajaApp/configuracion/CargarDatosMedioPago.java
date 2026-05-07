@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
-@Order(2)
+@Order(3)
 public class CargarDatosMedioPago implements CommandLineRunner {
 
     private final Imediodepagorepositorio medioPagoRepositorio;

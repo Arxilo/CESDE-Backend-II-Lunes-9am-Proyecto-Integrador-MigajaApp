@@ -5,6 +5,7 @@ import cesde.migaja.migajaApp.Models.utils.Estado;
 import cesde.migaja.migajaApp.Models.utils.Prioridad;
 import cesde.migaja.migajaApp.repositorios.CategoriaRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
+@Order(2)
 public class CargarDatosCategoria implements CommandLineRunner {
 
     private final CategoriaRepository categoriaRepository;
