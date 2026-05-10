@@ -2,6 +2,9 @@ package cesde.migaja.migajaApp.Models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -41,10 +44,19 @@ public class Comercio {
     @Column(name="representante_Legal", nullable = false, unique = false , length = 100)
     private String representanteLegal;
 
-    @OneToMany(mappedBy = "comercio")
+    @JsonIgnore
+    @OneToMany(mappedBy = "comercio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Gasto> gastos;
 
     public Comercio() {
+    }
+
+    public List<Gasto> getGastos() {
+        return gastos;
+    }
+
+    public void setGastos(List<Gasto> gastos) {
+        this.gastos = gastos;
     }
 
     public Comercio(Integer id, Integer nit, String nombre, String correo, String direccion, String telefono,

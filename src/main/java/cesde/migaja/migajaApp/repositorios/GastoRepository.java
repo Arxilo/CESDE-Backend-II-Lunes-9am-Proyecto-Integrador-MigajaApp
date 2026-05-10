@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import cesde.migaja.migajaApp.Models.Gasto;
 
 @Repository
-public interface GastoRepository extends JpaRepository<Gasto, Long> {
+public interface GastoRepository extends JpaRepository<Gasto, Integer> {
 
 }

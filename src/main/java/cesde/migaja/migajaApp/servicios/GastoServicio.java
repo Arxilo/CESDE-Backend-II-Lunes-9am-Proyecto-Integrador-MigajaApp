@@ -43,7 +43,7 @@ public class GastoServicio {
         return repositorio.findAll();
     }
 
-    public Gasto actualizarGasto(Long id, Gasto gasto) {
+    public Gasto actualizarGasto(Integer id, Gasto gasto) {
         Optional<Gasto> gastoBusqueda = repositorio.findById(id);
 
         if (gastoBusqueda.isEmpty()) {
@@ -57,7 +57,7 @@ public class GastoServicio {
             gastoEncontrado.setMonto(gasto.getMonto());
             gastoEncontrado.setImagen(gasto.getImagen());
             gastoEncontrado.setMoneda(gasto.getMoneda());
-            gastoEncontrado.setMetodoPago(gasto.getMetodoPago());
+            gastoEncontrado.setMedioPago(gasto.getMedioPago());
             gastoEncontrado.setLugar(gasto.getLugar());
             gastoEncontrado.setEsRecurrente(gasto.getEsRecurrente());
             gastoEncontrado.setTipoGasto(gasto.getTipoGasto());
@@ -69,7 +69,7 @@ public class GastoServicio {
         }
     }
 
-    public Boolean eliminarGasto(Long id) {
+    public Boolean eliminarGasto(Integer id) {
         Optional<Gasto> gasto = repositorio.findById(id);
         if (gasto.isEmpty()) {
             throw new ResponseStatusException(
@@ -81,7 +81,7 @@ public class GastoServicio {
         }
     }
 
-    public Gasto buscarGasto(Long id) {
+    public Gasto buscarGasto(Integer id) {
         Optional<Gasto> gasto = repositorio.findById(id);
         if (gasto.isEmpty()) {
             throw new ResponseStatusException(

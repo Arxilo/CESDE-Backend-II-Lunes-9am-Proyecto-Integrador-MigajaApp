@@ -1,5 +1,8 @@
 package cesde.migaja.migajaApp.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -17,7 +20,7 @@ import java.util.List;
 @Entity
 @Table(name = "Categorias")
 public class Categoria {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -52,11 +55,20 @@ public class Categoria {
     private Estado estado;
 
 
-    @OneToMany(mappedBy = "categoria")
+    @JsonIgnore
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Gasto> gastos;
 
     // Constructor vacío
     public Categoria() {
+    }
+
+    public List<Gasto> getGastos() {
+        return gastos;
+    }
+
+    public void setGastos(List<Gasto> gastos) {
+        this.gastos = gastos;
     }
 
     // Constructor lleno

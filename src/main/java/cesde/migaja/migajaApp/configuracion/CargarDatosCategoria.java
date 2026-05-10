@@ -28,7 +28,7 @@ public class CargarDatosCategoria implements CommandLineRunner {
         String[] nombres = {"Alimentación", "Transporte", "Vivienda", "Salud", "Educación", "Entretenimiento", "Ropa", "Ahorro", "Regalos", "Mascotas"};
         String[] responsables = {"Admin", "Mateo", "Valentina", "Sistema"};
         String[] colores = {"#FF5733", "#33FF57", "#3357FF", "#F333FF", "#FF33A1", "#33FFF3", "#F3FF33", "#FFA133", "#9933FF", "#33FF99"};
-        String[] iconos = {"restaurant", "directions_car", "home", "medical_services", "school", "theater_comedy", "checkroom", "savings", "redeem", "pets"};
+        String[] iconos = {"🍴", "🚗", "🏠", "🏥", "🎓", "🎭", "👕", "💰", "🎁", "🐾"};
         
         Prioridad[] prioridades = Prioridad.values();
         Estado[] estados = Estado.values();

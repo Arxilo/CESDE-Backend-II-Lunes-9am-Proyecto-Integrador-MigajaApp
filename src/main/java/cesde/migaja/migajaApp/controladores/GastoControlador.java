@@ -35,18 +35,18 @@ public class GastoControlador {
     }
 
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<?> putMethodName(@PathVariable Long id, @RequestBody Gasto gasto) {
+    public ResponseEntity<?> putMethodName(@PathVariable Integer id, @RequestBody Gasto gasto) {
 
         return ResponseEntity.status(HttpStatus.OK).body(servicio.actualizarGasto(id, gasto));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> eliminarGasto(@PathVariable Long id) {
+    public ResponseEntity<?> eliminarGasto(@PathVariable Integer id) {
         return ResponseEntity.status(HttpStatus.OK).body(servicio.eliminarGasto(id));
     }
 
     @GetMapping("/buscarPorId/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Integer id) {
         return ResponseEntity.status(HttpStatus.OK).body(servicio.buscarGasto(id));
     }
 

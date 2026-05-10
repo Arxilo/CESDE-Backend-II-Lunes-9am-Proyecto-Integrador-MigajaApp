@@ -2,8 +2,11 @@ package cesde.migaja.migajaApp.Models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import cesde.migaja.migajaApp.Models.utils.Rol;
 import cesde.migaja.migajaApp.Models.utils.TipoDocumento;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -53,10 +56,12 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
-    @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MedioPago> mediosDePago;
 
-    @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Gasto> gastos;
 
     public Usuario() {
@@ -74,6 +79,22 @@ public class Usuario {
         this.telefono = telefono;
         this.direccion = direccion;
         this.rol = rol;
+    }
+
+    public List<MedioPago> getMediosDePago() {
+        return mediosDePago;
+    }
+
+    public void setMediosDePago(List<MedioPago> mediosDePago) {
+        this.mediosDePago = mediosDePago;
+    }
+
+    public List<Gasto> getGastos() {
+        return gastos;
+    }
+
+    public void setGastos(List<Gasto> gastos) {
+        this.gastos = gastos;
     }
 
     public Integer getId() {

@@ -2,7 +2,10 @@ package cesde.migaja.migajaApp.Models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import cesde.migaja.migajaApp.Models.utils.Franquicia;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -37,10 +40,19 @@ public class MedioPago {
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "medioPago")
+    @JsonIgnore
+    @OneToMany(mappedBy = "medioPago", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Gasto> gastos;
 
     public MedioPago() {}
+
+    public List<Gasto> getGastos() {
+        return gastos;
+    }
+
+    public void setGastos(List<Gasto> gastos) {
+        this.gastos = gastos;
+    }
 
     public MedioPago(Integer id, String nombre, Franquicia franquicia, Boolean estado) {
         this.id = id;
